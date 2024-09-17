@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact List</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../src/css/styles.css">
+    <script src="../src/js/script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Contact List</h1>
+        <form id="contact-form">
+            <input type="hidden" id="contact-id" name="contact-id">
+            <input type="text" id="last-name" name="last-name" placeholder="Last Name" maxlength="50" required>
+            <input type="text" id="first-name" name="first-name" placeholder="First Name" maxlength="50" required>
+            <input type="email" id="email" name="email" placeholder="Email Address" maxlength="50" required>
+            <input type="text" id="contact-number" name="contact-number" placeholder="Contact Number" maxlength="15" pattern="^\d{10,15}$" required>
+            <span id="error-message" class="error-message"></span>
+            <button type="submit">Add Contact</button>
+        </form>
+        <table id="contact-table">
+            <thead>
+                <tr>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                    <th>Email Address</th>
+                    <th>Contact Number</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Contacts will be added here -->
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
