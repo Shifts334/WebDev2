@@ -1,0 +1,118 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Dashboard Navigation */
+.dashboard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #004d00;
+    padding: 20px;
+}
+
+.dashboard .logo img {
+    height: 50px;
+}
+
+.dashboard nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dashboard nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+.dashboard nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.dashboard .user-info {
+    color: #fff;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    margin: 20px auto;
+}
+
+h2 {
+    color: #333;
+}
+
+/* Search and Filter */
+.search-filter {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.search-filter input, .search-filter select {
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+}
+
+.search-filter button {
+    padding: 10px 20px;
+    background-color: #004d00;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.search-filter button:hover {
+    background-color: #008000;
+}
+
+/* Items Grid */
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.item-card {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.item-card img {
+    max-width: 100%;
+    height: auto;
+}
+
+.item-card .item-details h3 {
+    color: #333;
+}
+
+/* Pagination */
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination span {
+    padding: 10px;
+    margin: 0 5px;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.pagination span.active {
+    background-color: #004d00;
+    color: white;
+}
