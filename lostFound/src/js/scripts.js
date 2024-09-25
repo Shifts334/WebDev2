@@ -23,3 +23,71 @@ function filterByCategory() {
         }
     });
 }
+
+function openModal(modalId) {
+    document.getElementById(modalId).style.display = "block";
+}
+
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = "none";
+}
+
+function openUpdateModal(id) {
+    fetch(`get_item.php?id=${id}`)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('updateId').value = data.id;
+            document.getElementById('updateDateTime').value = data.date_time;
+            document.getElementById('updateLocationFound').value = data.location_found;
+            document.getElementById('updateCategory').value = data.category;
+            document.getElementById('currentImage').value = data.imageLocation;
+            openModal('updateModal');
+        });
+}
+
+function openDeleteModal(id) {
+    document.getElementById('deleteId').value = id;
+    openModal('deleteModal');
+}
+
+document.getElementById('createForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const formData = new FormData(this);
+    fetch('create.php', {
+        method: 'POST',
+        body: formData
+    }).then(response => response.text())
+      .then(data => {
+          alert(data);
+          closeModal('createModal');
+          location.reload();
+      });
+});
+
+document.getElementById('updateForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const formData = new FormData(this);
+    fetch('update.php', {
+        method: 'POST',
+        body: formData
+    }).then(response => response.text())
+      .then(data => {
+          alert(data);
+          closeModal('updateModal');
+          location.reload();
+      });
+});
+
+document.getElementById('deleteForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const formData = new FormData(this);
+    fetch('delete.php', {
+        method: 'POST',
+        body: formData
+    }).then(response => response.text())
+      .then(data => {
+          alert(data);
+          closeModal('deleteModal');
+          location.reload();
+      });
+});

@@ -1,5 +1,5 @@
 <?php
-include 'db_connect.php';
+include '../src/php/db_connect.php';
 
 $sql = "SELECT id, date_time, location_found, category, imageLocation FROM items";
 $result = $pdo->query($sql);
@@ -12,4 +12,3 @@ if ($result->rowCount() > 0) {
 } else {
     echo "0 results";
 }
-?>

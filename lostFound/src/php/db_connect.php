@@ -12,4 +12,4 @@ try {
     die("Connection failed: " . $e->getMessage());
 }
 $pdo->exec("SET NAMES utf8");
-?>
+
