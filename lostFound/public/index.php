@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Found Items - University of San Carlos</title>
-    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="../css/webdesign.css">
 </head>
 <body>
-    <!-- Include Dashboard (header navigation) -->
-    <?php include('includes/header.php'); ?>
+    <!-- header.php -->
+    <?php include '../html/dashboard.html'; ?> 
 
     <div class="container">
         <h2>Found Items</h2>
@@ -32,7 +32,7 @@
         <div class="items-grid">
             <!-- Placeholder for dynamic content -->
             <div class="item-card">
-                <img src="assets/item1.png" alt="Item Image">
+                <img src="../assets/images/salamanders.jpeg" alt="Item Image">
                 <div class="item-details">
                     <h3>Aqua Flask Gradient</h3>
                     <p>Date: 07/08/2024</p>
@@ -54,10 +54,6 @@
         </div>
     </div>
 
-    <!-- Include Footer -->
-    <?php include('includes/footer.php'); ?>
-
-    <script src="assets/script.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 </html>
-    

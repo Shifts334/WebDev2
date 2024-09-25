@@ -1,6 +1,6 @@
 <?php
 $host = "localhost";
-$dbname = "contactlist";
+$dbname = "lostfound";
 $username = "root";
 $password = "";
 
@@ -11,4 +11,5 @@ try {
 } catch (PDOException $e) {
     die("Connection failed: " . $e->getMessage());
 }
+$pdo->exec("SET NAMES utf8");
 ?>
