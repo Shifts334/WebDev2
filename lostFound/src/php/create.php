@@ -2,9 +2,9 @@
 include '../src/php/db_connect.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $date_time = $_POST['date_time'];
-    $location_found = $_POST['location_found'];
-    $category = $_POST['category'];
+    $date = $_POST['Date'];
+    $location = $_POST['Location'];
+    $description = $_POST['Description'];
     $image = $_FILES['image'];
 
     // Handle file upload
@@ -12,14 +12,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $target_file = $target_dir . basename($image["name"]);
     move_uploaded_file($image["tmp_name"], $target_file);
 
-    $sql = "INSERT INTO items (date_time, location_found, category, imageLocation) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO item (Date, Location, Description, Item_Image) VALUES (?, ?, ?, ?)";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([$date_time, $location_found, $category, $image["name"]]);
+    $stmt->execute([$date, $location, $description, $image["name"]]);
 
     echo "New record created successfully";
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,9 +31,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="container">
         <h2>Create New Item</h2>
         <form method="post" action="create.php" enctype="multipart/form-data">
-            Date/Time: <input type="datetime-local" name="date_time" required><br>
-            Location Found: <input type="text" name="location_found" required><br>
-            Category: <input type="text" name="category" required><br>
+            Date: <input type="date" name="Date" required><br>
+            Location: <input type="text" name="Location" required><br>
+            Description: <input type="text" name="Description" required><br>
             Image: <input type="file" name="image" required><br>
             <input type="submit" value="Submit">
         </form>

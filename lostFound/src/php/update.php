@@ -2,13 +2,12 @@
 include '../src/php/db_connect.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $id = $_POST['id'];
-    $date_time = $_POST['date_time'];
-    $location_found = $_POST['location_found'];
-    $category = $_POST['category'];
+    $id = $_POST['Item_ID'];
+    $date = $_POST['Date'];
+    $location = $_POST['Location'];
+    $description = $_POST['Description'];
     $image = $_FILES['image'];
 
-    // Handle file upload if a new image is provided
     if ($image['name']) {
         $target_dir = "../src/assets/images/";
         $target_file = $target_dir . basename($image["name"]);
@@ -18,14 +17,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $imageLocation = $_POST['current_image'];
     }
 
-    $sql = "UPDATE items SET date_time = ?, location_found = ?, category = ?, imageLocation = ? WHERE id = ?";
+    $sql = "UPDATE item SET Date = ?, Location = ?, Description = ?, Item_Image = ? WHERE Item_ID = ?";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([$date_time, $location_found, $category, $imageLocation, $id]);
+    $stmt->execute([$date, $location, $description, $imageLocation, $id]);
 
     echo "Record updated successfully";
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,10 +36,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="container">
         <h2>Update Item</h2>
         <form method="post" action="update.php" enctype="multipart/form-data">
-            ID: <input type="text" name="id" required><br>
-            Date/Time: <input type="datetime-local" name="date_time" required><br>
-            Location Found: <input type="text" name="location_found" required><br>
-            Category: <input type="text" name="category" required><br>
+            Item ID: <input type="text" name="Item_ID" required><br>
+            Date: <input type="date" name="Date" required><br>
+            Location: <input type="text" name="Location" required><br>
+            Description: <input type="text" name="Description" required><br>
             Image: <input type="file" name="image"><br>
             <input type="hidden" name="current_image" id="currentImage">
             <input type="submit" value="Update">

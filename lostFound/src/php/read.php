@@ -1,14 +1,14 @@
 <?php
 include '../src/php/db_connect.php';
 
-$sql = "SELECT id, date_time, location_found, category, imageLocation FROM items";
+$sql = "SELECT Item_ID, Date, Location, Description, Item_Image FROM item";
 $result = $pdo->query($sql);
 
 if ($result->rowCount() > 0) {
-    // Output data of each row
     while($row = $result->fetch(PDO::FETCH_ASSOC)) {
-        echo "ID: " . $row["id"]. " - Date/Time: " . $row["date_time"]. " - Location Found: " . $row["location_found"]. " - Category: " . $row["category"]. " - Image Location: " . $row["imageLocation"]. "<br>";
+        echo "Item ID: " . $row["Item_ID"] . " - Date: " . $row["Date"] . " - Location: " . $row["Location"] . " - Description: " . $row["Description"] . " - Image: " . $row["Item_Image"] . "<br>";
     }
 } else {
     echo "0 results";
 }
+?>
