@@ -1,11 +1,8 @@
 <?php
-include '../src/php/db_connect.php';
-
+include('db_connect.php');
 $id = $_GET['id'];
-$sql = "SELECT * FROM items WHERE id = ?";
-$stmt = $pdo->prepare($sql);
-$stmt->execute([$id]);
-$item = $stmt->fetch(PDO::FETCH_ASSOC);
+$query = mysqli_query($conn, "SELECT * FROM found_items WHERE id = '$id'");
+$item = mysqli_fetch_assoc($query);
 
 echo json_encode($item);
 ?>

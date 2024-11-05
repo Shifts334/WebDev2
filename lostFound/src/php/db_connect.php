@@ -1,15 +1,7 @@
 <?php
-$host = "localhost";
-$dbname = "lostfound";
-$username = "root";
-$password = "";
+$conn = mysqli_connect("localhost", "root", "", "found_items_db");
 
-// Establishing connection
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Connection failed: " . $e->getMessage());
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
-$pdo->exec("SET NAMES utf8");
-
+?>
